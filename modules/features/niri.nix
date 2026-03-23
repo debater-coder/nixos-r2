@@ -7,7 +7,6 @@
         enable = true;
         package = self.packages.${pkgs.stdenv.hostPlatform.system}.myNiri;
       };
-      services.displayManager.sessionPackages = lib.mkForce [ pkgs.niri ];
     };
 
   perSystem =
@@ -86,4 +85,5 @@
           };
       };
     };
+  };
 }
