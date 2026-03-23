@@ -1,0 +1,345 @@
+{ self, inputs, ... }:
+{
+
+  flake.nixosModules.starscreamConfiguration =
+    {
+      pkgs,
+      config,
+      options,
+      ...
+    }:
+    {
+      imports = [
+        self.nixosModules.starscreamHardware
+        self.nixosModules.niri
+      ];
+
+      boot = {
+        plymouth = {
+          enable = true;
+        };
+
+        # Enable "Silent Boot"
+        consoleLogLevel = 0;
+        initrd.kernelModules = [ "evdi" ];
+        initrd.verbose = false;
+        kernelParams = [
+          "quiet"
+          "splash"
+          "boot.shell_on_fail"
+          "loglevel=3"
+          "rd.systemd.show_status=false"
+          "rd.udev.log_level=3"
+          "udev.log_priority=3"
+        ];
+        loader = {
+          timeout = 0;
+          systemd-boot.enable = true;
+          systemd-boot.configurationLimit = 5;
+          systemd-boot.editor = false;
+          efi.canTouchEfiVariables = true;
+        };
+        extraModulePackages = [ config.boot.kernelPackages.evdi ];
+      };
+      boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+      boot.kernel.sysctl."kernel.sysrq" = 1;
+      systemd.oomd.enable = true;
+
+      # network
+      networking.hostName = "starscream";
+      networking.networkmanager.enable = true;
+      networking.timeServers = options.networking.timeServers.default ++ [ "0.au.pool.ntp.org" ];
+      services.ntp.enable = true;
+
+      # hardware (TODO: refactor)
+      services.udev.extraRules = ''
+        KERNEL=="ttyUSB[0-9]*",MODE="0666"
+        KERNEL=="ttyACM[0-9]*",MODE="0666"
+      '';
+
+      services.pulseaudio.enable = true;
+      services.pipewire = {
+        enable = true;
+        audio.enable = false;
+        pulse.enable = false;
+        alsa.enable = false;
+        wireplumber.enable = true;
+      };
+      hardware.bluetooth.enable = true;
+      services.blueman.enable = true;
+
+      services.printing.enable = true;
+      services.avahi = {
+        enable = true;
+        nssmdns4 = true;
+        openFirewall = true;
+      };
+
+      services.devmon.enable = true;
+      services.gvfs.enable = true;
+      services.udisks2.enable = true;
+
+      services.logind.settings.Login = {
+        HandleLidSwitch = "ignore";
+      };
+
+      # kanata (TODO: refactor to flake part)
+      services.kanata = {
+        enable = true;
+        keyboards = {
+          internalKeyboard = {
+            devices = [ ];
+            extraDefCfg = "process-unmapped-keys yes";
+            config = ''
+              (defsrc
+               caps a s d f j k l ;
+              )
+              (defvar
+               tap-time 300
+               hold-time 500
+              )
+              (defalias
+               caps esc
+               a (tap-hold-release-timeout $tap-time $hold-time a lmet a)
+               s (tap-hold-release-timeout $tap-time $hold-time s lalt s)
+               d (tap-hold-release-timeout $tap-time $hold-time d lsft d)
+               f (tap-hold-release-timeout $tap-time $hold-time f lctl f)
+               j (tap-hold-release-timeout $tap-time $hold-time j rctl j)
+               k (tap-hold-release-timeout $tap-time $hold-time k rsft k)
+               l (tap-hold-release-timeout $tap-time $hold-time l ralt l)
+               ; (tap-hold-release-timeout $tap-time $hold-time ; rmet ;)
+              )
+
+              (deflayer base
+               @caps @a  @s  @d  @f  @j  @k  @l  @;
+              )
+            '';
+          };
+        };
+      };
+
+      environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+      virtualisation.docker = {
+        enable = true;
+      };
+
+      # Define a user account. Don't forget to set a password with ‘passwd’.
+      users.users.hamzah = {
+        isNormalUser = true;
+        description = "Hamzah";
+        extraGroups = [
+          "networkmanager"
+          "wheel"
+          "docker"
+          "pipewire"
+          "audio"
+          "realtime"
+        ];
+        packages = [ ];
+        shell = pkgs.zsh;
+      };
+
+      programs.zsh.enable = true;
+      programs.direnv.enable = true;
+
+      home-manager = {
+        extraSpecialArgs = { inherit inputs; };
+        users = {
+          "hamzah" = {
+            imports = [
+              self.homeManagerModules.starscreamHomeManager
+            ];
+          };
+        };
+      };
+
+      nixpkgs.config.allowUnfree = true;
+
+      # List packages installed in system profile. To search, run:
+      # $ nix search wget
+      environment.systemPackages = with pkgs; [
+        neovim
+        vim
+        wget
+        kitty
+        git
+        waybar
+        libnotify
+        xwayland
+        bibata-cursors
+        gnome-themes-extra
+        firefoxpwa
+        prusa-slicer
+        base16-schemes
+        discord
+        grim
+        slurp
+        wl-clipboard
+        nautilus
+        chromium
+        pavucontrol
+        networkmanagerapplet
+        gnome-calculator
+        gnome-clocks
+        gnome-disk-utility
+        snapshot
+        gnome-font-viewer
+        loupe
+        gnomeExtensions.system-monitor
+        gnome-text-editor
+        totem
+        apostrophe
+        binary
+        commit
+        impression
+        gnome-boxes
+        vscode
+        gtk4-layer-shell
+        telegram-desktop
+        walker
+        gnome-keyring
+        pkg-config
+        udiskie
+        inputs.zen-browser.packages."${system}".default
+        nodejs_22
+        pnpm
+        picocom
+        brightnessctl
+        probe-rs-tools
+        zed-editor
+        nixd
+        nil
+        rust-analyzer
+        rshell
+        swaynotificationcenter
+        onedriver
+        python3
+        uv
+        man-pages
+        man-pages-posix
+        obsidian
+        go
+        ninja
+        cmake
+        element-desktop
+        ruff
+        elan
+        drawio
+        obs-studio
+        kicad
+        rtkit
+        graphviz
+        arduino-ide
+        logseq
+        lazygit
+        distrobox
+        astyle
+        opencode
+        displaylink
+      ];
+
+      programs.firefox = {
+        enable = true;
+        package = pkgs.firefox;
+        nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
+      };
+
+      programs.zoom-us.enable = true;
+      programs.neovim.defaultEditor = true;
+
+      xdg.portal.enable = true;
+      xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
+      security.rtkit.enable = true;
+      security.polkit.enable = true;
+
+      services.xserver.enable = true;
+      services.xserver.videoDrivers = [
+        "displaylink"
+        "modesetting"
+      ];
+
+      programs.thunderbird.enable = true;
+      services.onedrive.enable = true;
+
+      programs.nix-ld.enable = true;
+      programs.nix-ld.libraries = with pkgs; [
+        stdenv.cc.cc.lib
+        zlib # numpy
+      ];
+
+      services.ollama.enable = true;
+
+      services.mysql = {
+        enable = true;
+        package = pkgs.mariadb;
+      };
+
+      # Power saving
+      powerManagement.enable = true;
+      services.thermald.enable = true;
+
+      programs.virt-manager.enable = true;
+      users.groups.libvirtd.members = [ "hamzah" ];
+      virtualisation.libvirtd.enable = true;
+      virtualisation.spiceUSBRedirection.enable = true;
+      virtualisation.podman.enable = true;
+
+      nix.settings = {
+        experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
+        substituters = [ "https://hyprland.cachix.org" ];
+        trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+      };
+      nix.extraOptions = "
+      max-jobs = auto  # Allow building multiple derivations in parallel
+      keep-outputs = true  # Do not garbage-collect build time-only dependencies (e.g. clang)
+      # Allow fetching build results from the Lean Cachix cache
+      trusted-substituters = https://lean4.cachix.org/
+      trusted-public-keys = cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY= lean4.cachix.org-1:mawtxSxcaiWE24xCXXgh3qnvlTkyU7evRRnGeAhD4Wk=
+      ";
+      nix.gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 30d";
+      };
+
+      # Set your time zone.
+      time.timeZone = "Australia/Sydney";
+      time.hardwareClockInLocalTime = false;
+
+      # Select internationalisation properties.
+      i18n.defaultLocale = "en_AU.UTF-8";
+
+      i18n.extraLocaleSettings = {
+        LC_ADDRESS = "en_AU.UTF-8";
+        LC_IDENTIFICATION = "en_AU.UTF-8";
+        LC_MEASUREMENT = "en_AU.UTF-8";
+        LC_MONETARY = "en_AU.UTF-8";
+        LC_NAME = "en_AU.UTF-8";
+        LC_NUMERIC = "en_AU.UTF-8";
+        LC_PAPER = "en_AU.UTF-8";
+        LC_TELEPHONE = "en_AU.UTF-8";
+        LC_TIME = "en_AU.UTF-8";
+      };
+
+      # Configure keymap in X11
+      services.xserver.xkb = {
+        layout = "au";
+        variant = "";
+      };
+
+      # This value determines the NixOS release from which the default
+      # settings for stateful data, like file locations and database versions
+      # on your system were taken. It‘s perfectly fine and recommended to leave
+      # this value at the release version of the first install of this system.
+      # Before changing this value read the documentation for this option
+      # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+      system.stateVersion = "24.05"; # Did you read the comment?
+
+    };
+
+}
