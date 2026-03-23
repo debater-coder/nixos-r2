@@ -237,6 +237,7 @@
         astyle
         opencode
         displaylink
+        alacritty
       ];
 
       programs.firefox = {
