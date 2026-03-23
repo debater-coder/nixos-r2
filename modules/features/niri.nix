@@ -5,7 +5,9 @@
     {
       programs.niri = {
         enable = true;
+        package = self.packages.${pkgs.stdenv.hostPlatform.system}.myNiri;
       };
+      services.displayManager.sessionPackages = lib.mkForce [ pkgs.niri ];
     };
 
   perSystem =
@@ -19,9 +21,9 @@
       packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
         inherit pkgs; # THIS PART IS VERY IMPORTAINT, I FORGOT IT IN THE VIDEO!!!
         settings = {
-          # spawn-at-startup = [
-          #   { command = [ (lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.myNoctalia) ]; }
-          # ];
+          spawn-at-startup = [
+            (lib.getExe self'.packages.myNoctalia)
+          ];
 
           xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
 
@@ -75,8 +77,9 @@
             "Mod+Shift+9".move-column-to-workspace = "w8";
             "Mod+Shift+0".move-column-to-workspace = "w9";
 
-            # "Mod+S".spawn-sh = "${noctaliaExe} ipc call launcher toggle";
-            # "Mod+V".spawn-sh = ''${config.pkgs.alsa-utils}/bin/amixer sset Capture toggle'';
+            "Alt+Space".spawn-sh = "${
+              (lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.myNoctalia)
+            } ipc call launcher toggle";
 
             "XF86AudioRaiseVolume".spawn-sh = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+";
             "XF86AudioLowerVolume".spawn-sh = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-";
