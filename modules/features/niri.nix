@@ -108,7 +108,7 @@
           input.focus-follows-mouse = null;
 
           binds = {
-            "Mod+Return".spawn = lib.getExe pkgs.kitty;
+            "Mod+Return".spawn = lib.getExe pkgs.ghostty;
 
             "Mod+Q".close-window = null;
             "Mod+F".maximize-column = null;
