@@ -83,6 +83,9 @@
         HandleLidSwitch = "ignore";
       };
 
+      # enable fingerprint scanning
+      services.fprintd.enable = true;
+
       # kanata (TODO: refactor to flake part)
       services.kanata = {
         enable = true;
