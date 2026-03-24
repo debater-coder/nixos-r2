@@ -28,6 +28,17 @@
 
           input.keyboard.xkb.layout = "us,ua";
 
+          input.touchpad = {
+            natural-scroll = null;
+          };
+
+          window-rule = {
+            geometry-corner-radius = 20;
+            clip-to-geometry = true;
+          };
+
+          debug.honor-xdg-activation-with-invalid-serial = true;
+
           layout.gaps = 5;
           input.focus-follows-mouse = null;
 
@@ -45,15 +56,20 @@
             "Mod+K".focus-window-up = null;
             "Mod+J".focus-window-down = null;
 
-            "Mod+Left".focus-column-left = null;
-            "Mod+Right".focus-column-right = null;
-            "Mod+Up".focus-window-up = null;
-            "Mod+Down".focus-window-down = null;
+            "Mod+Left".focus-monitor-left = null;
+            "Mod+Right".focus-monitor-right = null;
+            "Mod+Up".focus-monitor-up = null;
+            "Mod+Down".focus-monitor-down = null;
 
             "Mod+Shift+H".move-column-left = null;
             "Mod+Shift+L".move-column-right = null;
             "Mod+Shift+K".move-window-up = null;
             "Mod+Shift+J".move-window-down = null;
+
+            "Mod+Shift+Left".move-window-to-monitor-left = null;
+            "Mod+Shift+Right".move-window-to-monitor-right = null;
+            "Mod+Shift+Up".move-window-to-monitor-up = null;
+            "Mod+Shift+Down".move-window-to-monitor-down = null;
 
             "Mod+Shift+S".screenshot = null;
 
@@ -77,6 +93,14 @@
             "Mod+Ctrl+L".set-column-width = "+5%";
             "Mod+Ctrl+J".set-window-height = "-5%";
             "Mod+Ctrl+K".set-window-height = "+5%";
+
+            "Mod+R".switch-preset-column-width = null;
+            "Mod+Shift+R".switch-preset-window-height = null;
+
+            "Mod+bracketleft".consume-or-expel-window-left = null;
+            "Mod+bracketright".consume-or-expel-window-right = null;
+
+            "Mod+O".toggle-overview = null;
 
             "Mod+WheelScrollDown".focus-column-left = null;
             "Mod+WheelScrollUp".focus-column-right = null;
