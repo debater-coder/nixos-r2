@@ -119,6 +119,14 @@
             "unfocusedIconsOpacity": 1
           },
           {
+            "defaultSettings": {
+              "autoStartBreaks": false,
+              "autoStartWork": false,
+              "longBreakDuration": 30,
+              "sessionsBeforeLongBreak": 4,
+              "shortBreakDuration": 10,
+              "workDuration": 50
+            },
             "id": "plugin:pomodoro"
           }
         ],
@@ -214,7 +222,7 @@
       "telemetryEnabled": false,
       "enableLockScreenCountdown": true,
       "lockScreenCountdownDuration": 10000,
-      "autoStartAuth": false,
+      "autoStartAuth": true,
       "allowPasswordWithFprintd": true,
       "clockStyle": "digital",
       "clockFormat": "hh\\nmm",
@@ -223,28 +231,13 @@
       "lockScreenBlur": 0,
       "lockScreenTint": 0,
       "keybinds": {
-        "keyUp": [
-          "Up"
-        ],
-        "keyDown": [
-          "Down"
-        ],
-        "keyLeft": [
-          "Left"
-        ],
-        "keyRight": [
-          "Right"
-        ],
-        "keyEnter": [
-          "Return",
-          "Enter"
-        ],
-        "keyEscape": [
-          "Esc"
-        ],
-        "keyRemove": [
-          "Del"
-        ]
+        "keyUp": ["Up"],
+        "keyDown": ["Down"],
+        "keyLeft": ["Left"],
+        "keyRight": ["Right"],
+        "keyEnter": ["Return", "Enter"],
+        "keyEscape": ["Esc"],
+        "keyRemove": ["Del"]
       },
       "reverseScroll": false
     },
@@ -567,11 +560,7 @@
       "autoHideMs": 2000,
       "overlayLayer": true,
       "backgroundOpacity": 1,
-      "enabledTypes": [
-        0,
-        1,
-        2
-      ],
+      "enabledTypes": [0, 1, 2],
       "monitors": []
     },
     "audio": {
@@ -686,6 +675,8 @@
     "wallpapers": {
       "DP-3": "/home/hamzah/nixos/hosts/starscream/home/wallpaper.jpg",
       "DP-4": "/home/hamzah/nixos/hosts/starscream/home/wallpaper.jpg",
+      "DP-5": "/home/hamzah/nixos/hosts/starscream/home/wallpaper.jpg",
+      "DP-6": "/home/hamzah/nixos/hosts/starscream/home/wallpaper.jpg",
       "eDP-1": "/home/hamzah/nixos/hosts/starscream/home/wallpaper.jpg"
     },
     "desktopWidgetsEditMode": false,
@@ -704,40 +695,10 @@
         "vrr_supported": false,
         "vrr_enabled": false,
         "transform": "Normal"
-      },
-      "DP-3": {
-        "name": "DP-3",
-        "connected": true,
-        "scale": 1.5,
-        "width": 2560,
-        "height": 1440,
-        "x": -5120,
-        "y": 0,
-        "physical_width": 600,
-        "physical_height": 340,
-        "refresh_rate": 60000,
-        "vrr_supported": false,
-        "vrr_enabled": false,
-        "transform": "Normal"
-      },
-      "DP-4": {
-        "name": "DP-4",
-        "connected": true,
-        "scale": 1.5,
-        "width": 2560,
-        "height": 1440,
-        "x": -2560,
-        "y": 0,
-        "physical_width": 600,
-        "physical_height": 340,
-        "refresh_rate": 60000,
-        "vrr_supported": false,
-        "vrr_enabled": false,
-        "transform": "Normal"
       }
     },
     "notificationsState": {
-      "lastSeenTs": 1774324872000
+      "lastSeenTs": 1774326308000
     },
     "changelogState": {
       "lastSeenVersion": "v4.6.7"
