@@ -85,6 +85,8 @@
 
       # enable fingerprint scanning
       services.fprintd.enable = true;
+      security.pam.services.login.fprintAuth = true;
+      security.pam.services.sudo.fprintAuth = true;
 
       # kanata (TODO: refactor to flake part)
       services.kanata = {
