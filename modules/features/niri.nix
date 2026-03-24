@@ -7,6 +7,62 @@
         enable = true;
         package = self.packages.${pkgs.stdenv.hostPlatform.system}.myNiri;
       };
+
+      environment.systemPackages = [
+        pkgs.upower
+        pkgs.nerd-fonts.jetbrains-mono
+        pkgs.corefonts
+      ];
+
+      fonts.packages = with pkgs; [
+        nerd-fonts.jetbrains-mono
+        rubik
+        noto-fonts
+      ];
+
+      stylix = {
+        enable = true;
+        autoEnable = false;
+
+        # this shouldn't actually affect anything since no stylix targets are enabled
+        base16Scheme = {
+          base00 = "212121";
+          base01 = "303030";
+          base02 = "353535";
+          base03 = "4A4A4A";
+          base04 = "B2CCD6";
+          base05 = "EEFFFF";
+          base06 = "EEFFFF";
+          base07 = "FFFFFF";
+          base08 = "F07178";
+          base09 = "F78C6C";
+          base0A = "FFCB6B";
+          base0B = "C3E88D";
+          base0C = "89DDFF";
+          base0D = "82AAFF";
+          base0E = "C792EA";
+          base0F = "FF5370";
+        };
+
+        cursor.package = pkgs.bibata-cursors;
+        cursor.name = "Bibata-Modern-Classic";
+        cursor.size = 24;
+
+        fonts = {
+          monospace = {
+            package = pkgs.jetbrains-mono;
+            name = "JetBrainsMono";
+          };
+          sansSerif = {
+            package = pkgs.rubik;
+            name = "Rubik";
+          };
+          serif = {
+            package = pkgs.noto-fonts;
+            name = "Noto Serif";
+          };
+        };
+      };
     };
 
   perSystem =
@@ -31,6 +87,15 @@
           input.touchpad = {
             natural-scroll = null;
           };
+
+          extraConfig = ''
+            output "DP-4" {
+                position x=-2560 y=0
+            }
+            output "DP-3"  {
+              position x=-5120 y=0
+            }
+          '';
 
           window-rule = {
             geometry-corner-radius = 20;
@@ -73,7 +138,6 @@
 
             "Mod+Shift+S".screenshot = null;
 
-
             "Alt+Space".spawn-sh = "${
               (lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.myNoctalia)
             } ipc call launcher toggle";
@@ -107,7 +171,7 @@
             "Mod+Ctrl+WheelScrollDown".focus-workspace-down = null;
             "Mod+Ctrl+WheelScrollUp".focus-workspace-up = null;
           };
+        };
       };
     };
-  };
 }
