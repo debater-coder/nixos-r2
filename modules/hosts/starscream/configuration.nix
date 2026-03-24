@@ -57,12 +57,12 @@
         KERNEL=="ttyACM[0-9]*",MODE="0666"
       '';
 
-      services.pulseaudio.enable = true;
+      services.pulseaudio.enable = false;
       services.pipewire = {
         enable = true;
-        audio.enable = false;
-        pulse.enable = false;
-        alsa.enable = false;
+        audio.enable = true;
+        pulse.enable = true;
+        alsa.enable = true;
         wireplumber.enable = true;
       };
       hardware.bluetooth.enable = true;
