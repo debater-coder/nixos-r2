@@ -9,10 +9,10 @@
       };
 
       environment.systemPackages = [
-        pkgs.upower
         pkgs.nerd-fonts.jetbrains-mono
         pkgs.corefonts
       ];
+      services.upower.enable = true;
 
       fonts.packages = with pkgs; [
         nerd-fonts.jetbrains-mono
