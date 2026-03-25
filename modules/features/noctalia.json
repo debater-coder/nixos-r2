@@ -98,6 +98,17 @@
         ],
         "center": [
           {
+            "defaultSettings": {
+              "autoStartBreaks": false,
+              "autoStartWork": false,
+              "longBreakDuration": 30,
+              "sessionsBeforeLongBreak": 4,
+              "shortBreakDuration": 10,
+              "workDuration": 50
+            },
+            "id": "plugin:pomodoro"
+          },
+          {
             "characterCount": 2,
             "colorizeIcons": false,
             "emptyColor": "secondary",
@@ -119,18 +130,13 @@
             "unfocusedIconsOpacity": 1
           },
           {
-            "defaultSettings": {
-              "autoStartBreaks": false,
-              "autoStartWork": false,
-              "longBreakDuration": 30,
-              "sessionsBeforeLongBreak": 4,
-              "shortBreakDuration": 10,
-              "workDuration": 50
-            },
-            "id": "plugin:pomodoro"
+            "id": "plugin:timer"
           }
         ],
         "right": [
+          {
+            "id": "plugin:privacy-indicator"
+          },
           {
             "blacklist": [],
             "chevronColor": "none",
@@ -231,13 +237,28 @@
       "lockScreenBlur": 0,
       "lockScreenTint": 0,
       "keybinds": {
-        "keyUp": ["Up"],
-        "keyDown": ["Down"],
-        "keyLeft": ["Left"],
-        "keyRight": ["Right"],
-        "keyEnter": ["Return", "Enter"],
-        "keyEscape": ["Esc"],
-        "keyRemove": ["Del"]
+        "keyUp": [
+          "Up"
+        ],
+        "keyDown": [
+          "Down"
+        ],
+        "keyLeft": [
+          "Left"
+        ],
+        "keyRight": [
+          "Right"
+        ],
+        "keyEnter": [
+          "Return",
+          "Enter"
+        ],
+        "keyEscape": [
+          "Esc"
+        ],
+        "keyRemove": [
+          "Del"
+        ]
       },
       "reverseScroll": false
     },
@@ -560,7 +581,11 @@
       "autoHideMs": 2000,
       "overlayLayer": true,
       "backgroundOpacity": 1,
-      "enabledTypes": [0, 1, 2],
+      "enabledTypes": [
+        0,
+        1,
+        2
+      ],
       "monitors": []
     },
     "audio": {
@@ -681,6 +706,36 @@
     },
     "desktopWidgetsEditMode": false,
     "display": {
+      "DP-5": {
+        "name": "DP-5",
+        "connected": true,
+        "scale": 1.5,
+        "width": 2560,
+        "height": 1440,
+        "x": 4023,
+        "y": 0,
+        "physical_width": 600,
+        "physical_height": 340,
+        "refresh_rate": 60000,
+        "vrr_supported": false,
+        "vrr_enabled": false,
+        "transform": "Normal"
+      },
+      "DP-6": {
+        "name": "DP-6",
+        "connected": true,
+        "scale": 1.5,
+        "width": 2560,
+        "height": 1440,
+        "x": 1463,
+        "y": 0,
+        "physical_width": 600,
+        "physical_height": 340,
+        "refresh_rate": 60000,
+        "vrr_supported": false,
+        "vrr_enabled": false,
+        "transform": "Normal"
+      },
       "eDP-1": {
         "name": "eDP-1",
         "connected": true,
@@ -698,7 +753,7 @@
       }
     },
     "notificationsState": {
-      "lastSeenTs": 1774326308000
+      "lastSeenTs": 1774399342000
     },
     "changelogState": {
       "lastSeenVersion": "v4.6.7"
