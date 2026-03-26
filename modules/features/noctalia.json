@@ -39,15 +39,6 @@
             "useDistroLogo": false
           },
           {
-            "clockColor": "none",
-            "customFont": "",
-            "formatHorizontal": "HH:mm ddd, MMM dd",
-            "formatVertical": "HH mm - dd MM",
-            "id": "Clock",
-            "tooltipFormat": "HH:mm ddd, MMM dd",
-            "useCustomFont": false
-          },
-          {
             "compactMode": true,
             "diskPath": "/",
             "iconColor": "primary",
@@ -70,45 +61,6 @@
             "usePadding": false
           },
           {
-            "colorizeIcons": false,
-            "hideMode": "hidden",
-            "id": "ActiveWindow",
-            "maxWidth": 145,
-            "scrollingMode": "hover",
-            "showIcon": true,
-            "textColor": "none",
-            "useFixedWidth": false
-          },
-          {
-            "compactMode": false,
-            "hideMode": "hidden",
-            "hideWhenIdle": false,
-            "id": "MediaMini",
-            "maxWidth": 145,
-            "panelShowAlbumArt": true,
-            "scrollingMode": "hover",
-            "showAlbumArt": true,
-            "showArtistFirst": true,
-            "showProgressRing": true,
-            "showVisualizer": false,
-            "textColor": "none",
-            "useFixedWidth": false,
-            "visualizerType": "linear"
-          }
-        ],
-        "center": [
-          {
-            "defaultSettings": {
-              "autoStartBreaks": false,
-              "autoStartWork": false,
-              "longBreakDuration": 30,
-              "sessionsBeforeLongBreak": 4,
-              "shortBreakDuration": 10,
-              "workDuration": 50
-            },
-            "id": "plugin:pomodoro"
-          },
-          {
             "characterCount": 2,
             "colorizeIcons": false,
             "emptyColor": "secondary",
@@ -128,6 +80,38 @@
             "showBadge": true,
             "showLabelsOnlyWhenOccupied": true,
             "unfocusedIconsOpacity": 1
+          },
+          {
+            "colorizeIcons": false,
+            "hideMode": "hidden",
+            "id": "ActiveWindow",
+            "maxWidth": 145,
+            "scrollingMode": "hover",
+            "showIcon": true,
+            "textColor": "none",
+            "useFixedWidth": false
+          }
+        ],
+        "center": [
+          {
+            "defaultSettings": {
+              "autoStartBreaks": false,
+              "autoStartWork": false,
+              "longBreakDuration": 30,
+              "sessionsBeforeLongBreak": 4,
+              "shortBreakDuration": 10,
+              "workDuration": 50
+            },
+            "id": "plugin:pomodoro"
+          },
+          {
+            "clockColor": "none",
+            "customFont": "",
+            "formatHorizontal": "HH:mm:ss ddd, dd MMM",
+            "formatVertical": "HH mm - dd MM",
+            "id": "Clock",
+            "tooltipFormat": "HH:mm ddd, MMM dd",
+            "useCustomFont": false
           },
           {
             "id": "plugin:timer"
