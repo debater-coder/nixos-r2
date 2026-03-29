@@ -244,6 +244,7 @@
         opencode
         displaylink
         alacritty
+        davinci-resolve
       ];
 
       programs.firefox = {
