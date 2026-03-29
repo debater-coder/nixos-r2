@@ -253,6 +253,14 @@
         nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
       };
 
+      hardware.graphics = {
+        enable = true;
+        driSupport32Bit = true;
+        extraPackages = with pkgs; [
+            intel-compute-runtime
+        ];
+      };
+
       programs.zoom-us.enable = true;
       programs.neovim.defaultEditor = true;
 
