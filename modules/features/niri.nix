@@ -89,10 +89,10 @@
           };
 
           extraConfig = ''
-            output "DP-4" {
+            output "Dell Inc. DELL S2721QS 5971N43" {
                 position x=-2560 y=0
             }
-            output "DP-3"  {
+            output "Dell Inc. DELL S2721QS DV61N43"  {
               position x=-5120 y=0
             }
           '';
