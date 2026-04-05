@@ -218,7 +218,6 @@
         nil
         rust-analyzer
         rshell
-        swaynotificationcenter
         onedriver
         python3
         uv
@@ -236,7 +235,6 @@
         kicad
         rtkit
         graphviz
-        arduino-ide
         logseq
         lazygit
         distrobox
@@ -244,7 +242,7 @@
         opencode
         displaylink
         alacritty
-        davinci-resolve
+        blender
       ];
 
       programs.firefox = {
@@ -257,7 +255,7 @@
         enable = true;
         enable32Bit = true;
         extraPackages = with pkgs; [
-            intel-compute-runtime
+          intel-compute-runtime
         ];
       };
 
