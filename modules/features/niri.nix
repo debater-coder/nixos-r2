@@ -78,7 +78,7 @@
         settings = {
           spawn-at-startup = [
             (lib.getExe self'.packages.myNoctalia)
-            "voxtype daemon --clipboard"
+            "voxtype"
           ];
 
           xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
