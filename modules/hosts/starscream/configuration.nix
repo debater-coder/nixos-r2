@@ -245,7 +245,7 @@
         displaylink
         alacritty
         blender
-        voxtype
+        voxtype-vulkan
         wtype
       ];
 
