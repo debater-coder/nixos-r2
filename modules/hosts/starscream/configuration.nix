@@ -135,6 +135,7 @@
         isNormalUser = true;
         description = "Hamzah";
         extraGroups = [
+          "input"
           "networkmanager"
           "wheel"
           "docker"
@@ -245,6 +246,7 @@
         alacritty
         blender
         voxtype
+        wtype
       ];
 
       programs.firefox = {
