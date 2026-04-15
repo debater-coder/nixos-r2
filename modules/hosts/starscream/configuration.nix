@@ -151,6 +151,7 @@
 
       home-manager = {
         extraSpecialArgs = { inherit inputs; };
+        backupFileExtension = "backup";
         users = {
           "hamzah" = {
             imports = [
@@ -243,6 +244,7 @@
         displaylink
         alacritty
         blender
+        voxtype
       ];
 
       programs.firefox = {

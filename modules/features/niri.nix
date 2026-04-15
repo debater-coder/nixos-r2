@@ -150,6 +150,8 @@
               (lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.myNoctalia)
             } ipc call lockScreen lock";
 
+            "Super+period".spawn-sh = "voxtype record toggle";
+
             "XF86AudioRaiseVolume".spawn-sh = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+";
             "XF86AudioLowerVolume".spawn-sh = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-";
 
