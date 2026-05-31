@@ -497,8 +497,8 @@
       "deadOpacity": 0.6,
       "animationSpeed": 1,
       "sitOnFrame": false,
-      "showDockIndicator": false,
-      "indicatorThickness": 3,
+      "showDockIndicator": true,
+      "indicatorThickness": 6,
       "indicatorColor": "primary",
       "indicatorOpacity": 0.6
     },
@@ -717,59 +717,59 @@
     "lockScreenActive": false,
     "wallpapers": {
       "eDP-1": "/home/hamzah/nixos/hosts/starscream/home/wallpaper.jpg",
-      "DP-5": "/home/hamzah/nixos/hosts/starscream/home/wallpaper.jpg",
-      "DP-6": "/home/hamzah/nixos/hosts/starscream/home/wallpaper.jpg"
+      "DP-4": "/home/hamzah/nixos/hosts/starscream/home/wallpaper.jpg",
+      "DP-3": "/home/hamzah/nixos/hosts/starscream/home/wallpaper.jpg"
     },
     "desktopWidgetsEditMode": false,
     "display": {
       "DP-3": {
-        "connected": true,
-        "height": 1440,
         "name": "DP-3",
-        "physical_height": 340,
-        "physical_width": 600,
-        "refresh_rate": 60000,
+        "connected": true,
         "scale": 1.5,
-        "transform": "Normal",
-        "vrr_enabled": false,
-        "vrr_supported": false,
         "width": 2560,
+        "height": 1440,
         "x": -5120,
-        "y": 0
+        "y": 0,
+        "physical_width": 600,
+        "physical_height": 340,
+        "refresh_rate": 60000,
+        "vrr_supported": false,
+        "vrr_enabled": false,
+        "transform": "Normal"
       },
       "DP-4": {
-        "connected": true,
-        "height": 1440,
         "name": "DP-4",
-        "physical_height": 340,
-        "physical_width": 600,
-        "refresh_rate": 60000,
+        "connected": true,
         "scale": 1.5,
-        "transform": "Normal",
-        "vrr_enabled": false,
-        "vrr_supported": false,
         "width": 2560,
+        "height": 1440,
         "x": -2560,
-        "y": 0
+        "y": 0,
+        "physical_width": 600,
+        "physical_height": 340,
+        "refresh_rate": 60000,
+        "vrr_supported": false,
+        "vrr_enabled": false,
+        "transform": "Normal"
       },
       "eDP-1": {
-        "connected": true,
-        "height": 914,
         "name": "eDP-1",
-        "physical_height": 180,
-        "physical_width": 290,
-        "refresh_rate": 60014,
+        "connected": true,
         "scale": 1.75,
-        "transform": "Normal",
-        "vrr_enabled": false,
-        "vrr_supported": false,
         "width": 1462,
+        "height": 914,
         "x": 0,
-        "y": 0
+        "y": 0,
+        "physical_width": 290,
+        "physical_height": 180,
+        "refresh_rate": 60014,
+        "vrr_supported": false,
+        "vrr_enabled": false,
+        "transform": "Normal"
       }
     },
     "notificationsState": {
-      "lastSeenTs": 1777703154000
+      "lastSeenTs": 1778304645000
     },
     "changelogState": {
       "lastSeenVersion": "v4.7.6"
