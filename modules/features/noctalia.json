@@ -138,6 +138,9 @@
             "id": "plugin:privacy-indicator"
           },
           {
+            "id": "plugin:sticky-notes"
+          },
+          {
             "blacklist": [],
             "chevronColor": "none",
             "colorizeIcons": false,
