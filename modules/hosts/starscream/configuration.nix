@@ -234,6 +234,8 @@
         blender
         voxtype-vulkan
         wtype
+        claude-code
+        codex
       ];
 
       programs.firefox = {
@@ -280,6 +282,11 @@
         enable = true;
         package = pkgs.mariadb;
       };
+
+      # TODO: fix in next logseq update
+      nixpkgs.config.permittedInsecurePackages = [
+        "electron-39.8.10"
+      ];
 
       # Power saving
       powerManagement.enable = true;

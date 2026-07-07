@@ -116,19 +116,23 @@
 
       programs.git = {
         enable = true;
-        userName = "debater-coder";
-        userEmail = "hamzah@syedahmed.net";
         signing = {
           key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFx4HxNcoOgY8yfFhg2cjhSxeGKTf4TzIighHKWWHumP hamzah@syedahmed.net";
           signByDefault = true;
+          format = "openpgp";
         };
         settings = {
           gpg.format = "ssh";
+          user.name = "debater-coder";
+          user.email = "hamzah@syedahmed.net";
         };
       };
 
       programs.neovim = {
         enable = true;
+        withRuby = false;
+        withNodeJs = true;
+        withPython3 = true;
         extraConfig = ''
           set number relativenumber expandtab autoindent
           set sw=2
@@ -137,7 +141,7 @@
 
       programs.ssh = {
         enable = true;
-        addKeysToAgent = "yes";
+        matchBlocks."*".addKeysToAgent = "yes";
       };
       services.ssh-agent.enable = true;
 

@@ -86,7 +86,7 @@
           input.keyboard.xkb.layout = "us,ua";
 
           input.touchpad = {
-            natural-scroll = null;
+            natural-scroll = _: { };
           };
 
           extraConfig = ''
@@ -106,38 +106,38 @@
           debug.honor-xdg-activation-with-invalid-serial = true;
 
           layout.gaps = 5;
-          input.focus-follows-mouse = null;
+          input.focus-follows-mouse = _: { };
 
           binds = {
             "Mod+Return".spawn = lib.getExe pkgs.ghostty;
 
-            "Mod+Q".close-window = null;
-            "Mod+F".maximize-column = null;
-            "Mod+G".fullscreen-window = null;
-            "Mod+Shift+F".toggle-window-floating = null;
-            "Mod+C".center-column = null;
+            "Mod+Q".close-window = _: { };
+            "Mod+F".maximize-column = _: { };
+            "Mod+G".fullscreen-window = _: { };
+            "Mod+Shift+F".toggle-window-floating = _: { };
+            "Mod+C".center-column = _: { };
 
-            "Mod+H".focus-column-left = null;
-            "Mod+L".focus-column-right = null;
-            "Mod+K".focus-window-up = null;
-            "Mod+J".focus-window-down = null;
+            "Mod+H".focus-column-left = _: { };
+            "Mod+L".focus-column-right = _: { };
+            "Mod+K".focus-window-up = _: { };
+            "Mod+J".focus-window-down = _: { };
 
-            "Mod+Left".focus-monitor-left = null;
-            "Mod+Right".focus-monitor-right = null;
-            "Mod+Up".focus-monitor-up = null;
-            "Mod+Down".focus-monitor-down = null;
+            "Mod+Left".focus-monitor-left = _: { };
+            "Mod+Right".focus-monitor-right = _: { };
+            "Mod+Up".focus-monitor-up = _: { };
+            "Mod+Down".focus-monitor-down = _: { };
 
-            "Mod+Shift+H".move-column-left = null;
-            "Mod+Shift+L".move-column-right = null;
-            "Mod+Shift+K".move-window-up = null;
-            "Mod+Shift+J".move-window-down = null;
+            "Mod+Shift+H".move-column-left = _: { };
+            "Mod+Shift+L".move-column-right = _: { };
+            "Mod+Shift+K".move-window-up = _: { };
+            "Mod+Shift+J".move-window-down = _: { };
 
-            "Mod+Shift+Left".move-window-to-monitor-left = null;
-            "Mod+Shift+Right".move-window-to-monitor-right = null;
-            "Mod+Shift+Up".move-window-to-monitor-up = null;
-            "Mod+Shift+Down".move-window-to-monitor-down = null;
+            "Mod+Shift+Left".move-window-to-monitor-left = _: { };
+            "Mod+Shift+Right".move-window-to-monitor-right = _: { };
+            "Mod+Shift+Up".move-window-to-monitor-up = _: { };
+            "Mod+Shift+Down".move-window-to-monitor-down = _: { };
 
-            "Mod+Shift+S".screenshot = null;
+            "Mod+Shift+S".screenshot = _: { };
 
             "Alt+Space".spawn-sh = "${
               (lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.myNoctalia)
@@ -161,18 +161,18 @@
             "Mod+Ctrl+J".set-window-height = "-5%";
             "Mod+Ctrl+K".set-window-height = "+5%";
 
-            "Mod+R".switch-preset-column-width = null;
-            "Mod+Shift+R".switch-preset-window-height = null;
+            "Mod+R".switch-preset-column-width = _: { };
+            "Mod+Shift+R".switch-preset-window-height = _: { };
 
-            "Mod+bracketleft".consume-or-expel-window-left = null;
-            "Mod+bracketright".consume-or-expel-window-right = null;
+            "Mod+bracketleft".consume-or-expel-window-left = _: { };
+            "Mod+bracketright".consume-or-expel-window-right = _: { };
 
-            "Mod+O".toggle-overview = null;
+            "Mod+O".toggle-overview = _: { };
 
-            "Mod+WheelScrollDown".focus-column-right = null;
-            "Mod+WheelScrollUp".focus-column-left = null;
-            "Mod+Ctrl+WheelScrollDown".focus-workspace-down = null;
-            "Mod+Ctrl+WheelScrollUp".focus-workspace-up = null;
+            "Mod+WheelScrollDown".focus-column-right = _: { };
+            "Mod+WheelScrollUp".focus-column-left = _: { };
+            "Mod+Ctrl+WheelScrollDown".focus-workspace-down = _: { };
+            "Mod+Ctrl+WheelScrollUp".focus-workspace-up = _: { };
           };
         };
       };
