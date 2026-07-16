@@ -236,6 +236,7 @@
         wtype
         claude-code
         codex
+        zenity
       ];
 
       programs.firefox = {
