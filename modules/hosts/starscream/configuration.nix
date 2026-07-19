@@ -237,6 +237,7 @@
         claude-code
         codex
         zenity
+        glamoroustoolkit
       ];
 
       programs.firefox = {
