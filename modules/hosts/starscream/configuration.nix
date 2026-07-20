@@ -238,6 +238,7 @@
         codex
         zenity
         glamoroustoolkit
+        anki
       ];
 
       programs.firefox = {
