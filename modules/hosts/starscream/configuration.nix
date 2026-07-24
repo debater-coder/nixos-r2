@@ -239,6 +239,7 @@
         zenity
         glamoroustoolkit
         anki
+        jetbrains.pycharm
       ];
 
       programs.firefox = {
