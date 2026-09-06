@@ -240,6 +240,7 @@
         glamoroustoolkit
         anki
         kdePackages.kdenlive
+        davinci-resolve
       ];
 
       programs.firefox = {
