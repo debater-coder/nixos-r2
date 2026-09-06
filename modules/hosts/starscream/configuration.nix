@@ -239,7 +239,7 @@
         zenity
         glamoroustoolkit
         anki
-        davinci-resolve
+        openshot-qt
       ];
 
       programs.firefox = {
