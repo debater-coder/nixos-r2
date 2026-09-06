@@ -239,7 +239,7 @@
         zenity
         glamoroustoolkit
         anki
-        openshot-qt
+        kdePackages.kdenlive
       ];
 
       programs.firefox = {
