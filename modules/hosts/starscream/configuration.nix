@@ -241,6 +241,7 @@
         anki
         kdePackages.kdenlive
         davinci-resolve
+        typesetter
       ];
 
       programs.firefox = {
