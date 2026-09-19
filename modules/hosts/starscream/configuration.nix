@@ -242,6 +242,7 @@
         kdePackages.kdenlive
         davinci-resolve
         typesetter
+        pdfarranger
       ];
 
       programs.firefox = {
