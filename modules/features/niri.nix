@@ -18,6 +18,7 @@
         nerd-fonts.jetbrains-mono
         rubik
         noto-fonts
+        symbola
       ];
 
       stylix = {
