@@ -244,6 +244,7 @@
         typesetter
         pdfarranger
         emacs
+        ripgrep
       ];
 
       programs.firefox = {
