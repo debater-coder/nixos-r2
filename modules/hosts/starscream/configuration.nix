@@ -243,6 +243,7 @@
         davinci-resolve
         typesetter
         pdfarranger
+        emacs
       ];
 
       programs.firefox = {
