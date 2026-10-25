@@ -245,8 +245,7 @@
         pdfarranger
         emacs
         ripgrep
-        pkgs.texlive.withPackages
-        (
+        (pkgs.texlive.withPackages (
           ps: with ps; [
             dvipng
             scheme-basic # or scheme-medium, etc.
@@ -254,7 +253,7 @@
             ulem
             hyperref
           ]
-        )
+        ))
       ];
 
       programs.firefox = {
