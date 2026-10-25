@@ -245,6 +245,16 @@
         pdfarranger
         emacs
         ripgrep
+        pkgs.texlive.withPackages
+        (
+          ps: with ps; [
+            dvipng
+            scheme-basic # or scheme-medium, etc.
+            amsmath
+            ulem
+            hyperref
+          ]
+        )
       ];
 
       programs.firefox = {
