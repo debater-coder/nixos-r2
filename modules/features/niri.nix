@@ -19,6 +19,8 @@
         rubik
         noto-fonts
         symbola
+        source-sans-pro
+        et-book
       ];
 
       stylix = {
