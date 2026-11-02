@@ -254,6 +254,7 @@
             hyperref
           ]
         ))
+        seer
       ];
 
       programs.firefox = {
