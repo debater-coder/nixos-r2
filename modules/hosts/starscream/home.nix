@@ -117,7 +117,7 @@
       programs.git = {
         enable = true;
         signing = {
-          key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFx4HxNcoOgY8yfFhg2cjhSxeGKTf4TzIighHKWWHumP hamzah@syedahmed.net";
+          key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICQIQ9YQeFmE3sMsEKLlsGdxAJsvZ9g9bnIpQojY9r4c hamzah@syedahmed.net";
           signByDefault = true;
           format = "openpgp";
         };

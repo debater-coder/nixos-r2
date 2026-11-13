@@ -94,11 +94,11 @@
 
           extraConfig = ''
             output "Dell Inc. DELL S2721QS 5971N43" {
-                position x=-2560 y=0
+                position x=-1920 y=0
                 scale 2.0
             }
             output "Dell Inc. DELL S2721QS DV61N43"  {
-              position x=-5120 y=0
+              position x=-3840 y=0
               scale 2.0
             }
           '';
