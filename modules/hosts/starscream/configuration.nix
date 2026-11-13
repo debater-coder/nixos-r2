@@ -22,7 +22,6 @@
         # Enable "Silent Boot"
         consoleLogLevel = 0;
         initrd.kernelModules = [ "evdi" ];
-        initrd.verbose = false;
         kernelParams = [
           "quiet"
           "splash"
