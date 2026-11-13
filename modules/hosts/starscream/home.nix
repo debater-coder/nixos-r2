@@ -35,7 +35,7 @@
       # plain files is through 'home.file'.
       home.file = {
         ".ssh/allowed_signers".text =
-          "* ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFx4HxNcoOgY8yfFhg2cjhSxeGKTf4TzIighHKWWHumP hamzah@syedahmed.net";
+          "* ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICQIQ9YQeFmE3sMsEKLlsGdxAJsvZ9g9bnIpQojY9r4c hamzah@syedahmed.net";
         # # Building this configuration will create a copy of 'dotfiles/screenrc' in
         # # the Nix store. Activating the configuration will then make '~/.screenrc' a
         # # symlink to the Nix store copy.
