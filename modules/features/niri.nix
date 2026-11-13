@@ -95,9 +95,11 @@
           extraConfig = ''
             output "Dell Inc. DELL S2721QS 5971N43" {
                 position x=-2560 y=0
+                scale 2.0
             }
             output "Dell Inc. DELL S2721QS DV61N43"  {
               position x=-5120 y=0
+              scale 2.0
             }
           '';
 
@@ -144,20 +146,20 @@
 
             "Alt+Space".spawn-sh = "${
               (lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.myNoctalia)
-            } ipc call launcher toggle";
+            } msg panel-toggle launcher";
 
             "Super+Delete".spawn-sh = "${
               (lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.myNoctalia)
-            } ipc call lockScreen lock";
+            } msg session lock";
 
             "Super+Escape".spawn-sh = "${
               (lib.getExe self.packages.${pkgs.stdenv.hostPlatform.system}.myNoctalia)
-            } ipc call lockScreen lock";
+            } msg session lock";
 
             "Super+period".spawn-sh = "voxtype record toggle";
 
-            "XF86AudioRaiseVolume".spawn-sh = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+";
-            "XF86AudioLowerVolume".spawn-sh = "wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-";
+            "XF86AudioRaiseVolume".spawn-sh = "noctalia msg volume-up";
+            "XF86AudioLowerVolume".spawn-sh = "noctalia msg volume-down";
 
             "Mod+Ctrl+H".set-column-width = "-5%";
             "Mod+Ctrl+L".set-column-width = "+5%";
