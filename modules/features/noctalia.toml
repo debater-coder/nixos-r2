@@ -16,7 +16,7 @@ end = [
 ]
 margin_ends = 0
 radius = 0
-start = [ "workspaces", "cpu", "ram", "sysmon" ]
+start = [ "workspaces", "cpu", "ram", "sysmon", "active_window" ]
 
 [control_center.media]
 show_visualizer = false
@@ -58,11 +58,11 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-login-box@DP-3", "loc
     [lockscreen_widgets.widget."lockscreen-login-box@DP-3"]
     box_height = 196.0
     box_width = 810.0
-    cx = 1280.0
-    cy = 1258.0
+    cx = 960.0
+    cy = 943.5
     output = "DP-3"
-    placement_height = 1440.0
-    placement_width = 2560.0
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "login_box"
 
@@ -86,11 +86,11 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-login-box@DP-3", "loc
     [lockscreen_widgets.widget."lockscreen-login-box@DP-4"]
     box_height = 196.0
     box_width = 810.0
-    cx = 1280.0
-    cy = 1258.0
+    cx = 960.0
+    cy = 943.5
     output = "DP-4"
-    placement_height = 1440.0
-    placement_width = 2560.0
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "login_box"
 
@@ -149,6 +149,12 @@ enabled = [ "noctalia/timer", "thepunkoff/pomodoro" ]
 clipboard_enabled = false
 clipboard_keep_from_closed_apps = false
 
+    [shell.launcher.providers.session]
+    global = true
+
+    [shell.launcher.providers.windows]
+    global = true
+
 [theme]
 community_palette = "GitHub Dark"
 source = "community"
@@ -171,10 +177,14 @@ directory = "/home/hamzah/nixos-config/hosts/starscream/home"
     [wallpaper.monitors.eDP-1]
     path = "/home/hamzah/nixos-config/hosts/starscream/home/wallpaper.jpg"
 
+[widget.active_window]
+title_scroll = "on_hover"
+
 [widget.bar]
 type = "noctalia/timer:bar"
 
 [widget.cpu]
+capsule = false
 show_value = false
 
 [widget.date]
@@ -184,9 +194,11 @@ format = "{:%a %d %b %l:%M:%S %P}"
 show_label = false
 
 [widget.ram]
+capsule = false
 show_value = false
 
 [widget.sysmon]
+capsule = false
 show_value = false
 stat = "disk_used"
 
