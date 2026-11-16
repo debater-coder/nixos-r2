@@ -142,6 +142,50 @@
       programs.ssh = {
         enable = true;
         matchBlocks."*".addKeysToAgent = "yes";
+        extraConfig = ''
+          Host login.trustworthy.systems
+              User debater-coder
+              IdentityFile ~/.ssh/id_ed25519
+
+          Match Host *.keg.cse.unsw.edu.au !localnetwork 10.13.0.0/23,172.16.0.0/16
+              ProxyJump login.trustworthy.systems
+              User debater-coder
+              IdentityFile ~/.ssh/id_ed25519
+
+          Match Host *.keg.cse.unsw.edu.au localnetwork 10.13.0.0/23,172.16.0.0/16
+              User debater-coder
+              IdentityFile ~/.ssh/id_ed25519
+
+
+          Host *.keg !socks-proxy.keg !login.trustworthy.systems
+              CanonicalizeHostname yes
+              CanonicalDomains keg.cse.unsw.edu.au
+              CanonicalizePermittedCNAMEs *.keg:*.keg.cse.unsw.edu.au
+              CanonicalizeMaxDots 1
+              CanonicalizeFallbackLocal yes
+              ProxyJump login.trustworthy.systems
+              User debater-coder
+              IdentityFile ~/.ssh/id_ed25519
+
+          Host *.trustworthy.systems
+              ControlMaster auto
+              ControlPersist 300
+              ControlPath ~/.ssh/cm-%C
+              ServerAliveInterval 60
+              TCPKeepAlive yes
+
+          Match Host socks-proxy.keg
+              Hostname login.trustworthy.systems
+              DynamicForward 8080
+              ForkAfterAuthentication yes
+              SessionType none
+              ControlMaster auto
+              ControlPersist yes
+              ControlPath ~/.ssh/cm-socks-proxy.keg
+              IdentityFile ~/.ssh/id_ed25519
+
+              User debater-coder
+        '';
       };
       services.ssh-agent.enable = true;
 
